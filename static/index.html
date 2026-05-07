@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Needleman-Wunsch Global Alignment</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <h2>NW Alignment</h2>
+            
+            <div class="panel">
+                <h3>Input Sequences</h3>
+                <div class="form-group">
+                    <label>Sequence 1</label>
+                    <input type="text" id="seq1" placeholder="e.g. ACTG" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label>Sequence 2</label>
+                    <input type="text" id="seq2" placeholder="e.g. ACG" autocomplete="off">
+                </div>
+                <div id="validation-error" class="error-msg hidden"></div>
+                <div id="validation-success" class="success-msg hidden"></div>
+            </div>
+
+            <div class="panel">
+                <h3>Scoring System</h3>
+                <div class="scoring-grid">
+                    <div class="form-group">
+                        <label>Match</label>
+                        <input type="number" id="match-score" value="1">
+                    </div>
+                    <div class="form-group">
+                        <label>Mismatch</label>
+                        <input type="number" id="mismatch-score" value="-1">
+                    </div>
+                    <div class="form-group">
+                        <label>Gap</label>
+                        <input type="number" id="gap-score" value="-2">
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="btn-example" class="btn-secondary">Example</button>
+                <button id="btn-clear" class="btn-danger">Clear</button>
+                <button id="btn-run" class="btn-primary">Run</button>
+            </div>
+
+            <div class="panel results-panel">
+                <h3>Results</h3>
+                <div id="score-display" class="score">Score: --</div>
+                <pre id="alignment-display" class="alignment-box">Run alignment...</pre>
+            </div>
+        </div>
+
+        <!-- Right Main Area -->
+        <div class="main-area">
+            <div class="matrix-header">
+                <h2>Dynamic Programming Matrix</h2>
+            </div>
+            <div class="matrix-container" id="matrix-container">
+                <div class="placeholder-text">Enter sequences to initialize the matrix.</div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/app.js"></script>
+</body>
+</html>
