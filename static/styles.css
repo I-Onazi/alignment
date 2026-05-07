@@ -78,6 +78,8 @@ input[type="text"], input[type="number"] {
     border-radius: 4px;
     font-family: monospace;
     font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 input:focus {
